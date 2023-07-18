@@ -7,33 +7,23 @@ const Header = () => {
 
   const [avatarToggle, setAvatarToggle] = useState(false);
 
-  const avatarLink = [
-    {
-      name: "Profile",
-      link: "#profile",
-    },
-    {
-      name: "Logout",
-      link: "#logout",
-    },
-  ];
   const linkList = [
     {
-      name: "Home",
+      name: "Beranda",
       link: "#home",
     },
     {
-      name: "What's new?",
-      link: "#whatNew",
+      name: "Kegiatan",
+      link: "#kegiatan",
     },
     {
-      name: "About",
+      name: "Tentang",
       link: "#about",
     },
   ];
 
   return (
-    <header className="top-0 left-0 w-full flex items-center z-10 border-b-2 border-black fixed bg-white">
+    <header className="top-0 left-0 w-full flex items-center z-50 border-b-2 border-black fixed bg-white">
       <div className="container">
         <div className="flex items-center justify-between relative">
           <div>
@@ -62,11 +52,11 @@ const Header = () => {
 
             {/* navbar */}
             <nav
-              className={`absolute py-5 bg-slate-100 shadow-lg  rounded-lg max-w-[200px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none ${
+              className={`absolute py-5 lg:border-0 lg:border-none btn bg-slate-100 shadow-lg  rounded-lg max-w-[200px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none ${
                 !isToggle ? "hidden" : ""
               }`}
             >
-              <ul className="block lg:flex">
+              <ul className="block lg:flex ">
                 {linkList.map(({ name, link }) => (
                   <li className="group">
                     <a
@@ -81,7 +71,7 @@ const Header = () => {
             </nav>
 
             <div
-              className={`flex justify-end mr-10  ${
+              className={`flex justify-end mr-10 ${
                 isLogin ? "lg:w-52" : "w-52"
               }`}
             >
@@ -94,26 +84,35 @@ const Header = () => {
                     <img src="avatar-1.png" alt="" className="w-full" />
                   </a>
                   {avatarToggle && (
-                    <ul className="absolute w-52 bg-slate-100 rounded shadow-lg mt-10 ">
-                      {avatarLink.map(({ name, link }) => (
-                        <li className="group">
-                          <a
-                            href={link}
-                            className="text-black py-2 mx-8 lg:mx-4 flex group-hover:text-primary border-b"
-                          >
-                            {name}
-                          </a>
-                        </li>
-                      ))}
+                    <ul className="absolute w-52 bg-slate-100 rounded shadow-lg mt-10 btn ">
+                      <li className="group">
+                        <a
+                          onClick={() => setLogin(false)}
+                          className="text-black py-2 mx-8 lg:mx-4 flex group-hover:text-primary border-b cursor-pointer"
+                        >
+                          Logout
+                        </a>
+                      </li>
+                      <li className="group">
+                        <a
+                          href="#profile"
+                          className="text-black py-2 mx-8 lg:mx-4 flex group-hover:text-primary border-b"
+                        >
+                          Profile
+                        </a>
+                      </li>
                     </ul>
                   )}
                 </>
               ) : (
                 <>
-                  <button className="btn bg-sky-400 hover:bg-sky-500 py-1 px-4 mr-4 ">
+                  <button className="btn bg-sky-400 hover:bg-sky-500 py-1 px-4 mr-4  ">
                     Daftar
                   </button>
-                  <button className="btn bg-yellow-500 hover:bg-yellow-600 py-1 px-4 mr-4 lg:mr-0">
+                  <button
+                    onClick={() => setLogin(true)}
+                    className="btn bg-yellow-400 hover:bg-yellow-500 py-1 px-4 mr-4 lg:mr-0"
+                  >
                     Masuk
                   </button>
                 </>
@@ -121,7 +120,6 @@ const Header = () => {
             </div>
           </div>
         </div>
-        {/* <button onClick={() => setLogin(!isLogin)}>Pencet</button> */}
       </div>
     </header>
   );

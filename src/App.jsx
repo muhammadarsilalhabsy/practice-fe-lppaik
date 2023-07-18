@@ -1,5 +1,5 @@
 import React from "react";
-import { Collaboration, Header, Hero, Post } from "./components";
+import { Collaboration, Header, Hero, Post, About, Footer } from "./components";
 
 const App = () => {
   return (
@@ -8,6 +8,8 @@ const App = () => {
       <Hero />
       <Collaboration />
       <Post />
+      <About />
+      <Footer />
     </>
   );
 };
