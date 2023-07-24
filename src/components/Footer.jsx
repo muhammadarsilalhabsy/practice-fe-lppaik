@@ -12,7 +12,7 @@ const Footer = () => {
             <h3 className="text-2xl font-bold mb-2">Hubungi Kami</h3>
             <p>lppaik@umkendari.ac.id</p>
             <p>Jalan KH. Ahmad Dahlan No. 10</p>
-            <p>Sulawesi Tenggara, Kota Kendari</p>
+            <p>Kendari, Sulawesi Tenggara, Indonesia</p>
           </div>
 
           {/* center / 2 */}

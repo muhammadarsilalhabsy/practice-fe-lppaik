@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -20,9 +21,12 @@ const Hero = () => {
                 Bebas Buta Baca Tulis Al-Qur'an, Bertakwa dan Berakhlakul
                 Karimah.
               </p>
-              <button className="mt-2 font-medium btn py-2 px-6 bg-yellow-400 hover:bg-yellow-500 transition duration-200">
+              <Link
+                to="/kegiatan"
+                className="mt-2 font-medium btn py-2 px-6 bg-yellow-400 hover:bg-yellow-500 transition duration-200"
+              >
                 Lihat Kegiatan
-              </button>
+              </Link>
             </div>
           </div>
         </div>

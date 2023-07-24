@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 const Header = () => {
   const [isToggle, setToggle] = useState(false);
 
@@ -10,15 +10,11 @@ const Header = () => {
   const linkList = [
     {
       name: "Beranda",
-      link: "#home",
+      link: "/",
     },
     {
       name: "Kegiatan",
-      link: "#kegiatan",
-    },
-    {
-      name: "Tentang",
-      link: "#about",
+      link: "/kegiatan",
     },
   ];
 
@@ -27,12 +23,9 @@ const Header = () => {
       <div className="container">
         <div className="flex items-center justify-between relative">
           <div>
-            <a
-              href="#home"
-              className="text-primary font-bold text-xl block py-6"
-            >
+            <Link to="/" className="text-black font-bold text-xl block py-4">
               LPPAIK
-            </a>
+            </Link>
           </div>
 
           <div className="flex items-center px-4">
@@ -52,19 +45,19 @@ const Header = () => {
 
             {/* navbar */}
             <nav
-              className={`absolute py-5 lg:border-0 lg:border-none btn bg-slate-100 shadow-lg  rounded-lg max-w-[200px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none ${
+              className={`absolute py-4 lg:border-0 lg:border-none btn bg-slate-100 shadow-lg  rounded-lg max-w-[200px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none ${
                 !isToggle ? "hidden" : ""
               }`}
             >
               <ul className="block lg:flex ">
                 {linkList.map(({ name, link }) => (
                   <li className="group">
-                    <a
-                      href={link}
+                    <Link
+                      to={link}
                       className="text-black py-2 mx-8 lg:mx-4 flex group-hover:text-primary lg:border-none border-b"
                     >
                       {name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -94,27 +87,31 @@ const Header = () => {
                         </a>
                       </li>
                       <li className="group">
-                        <a
-                          href="#profile"
+                        <Link
+                          to="/profile"
                           className="text-black py-2 mx-8 lg:mx-4 flex group-hover:text-primary border-b"
                         >
                           Profile
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   )}
                 </>
               ) : (
                 <>
-                  <button className="btn bg-sky-400 hover:bg-sky-500 py-1 px-4 mr-4  ">
+                  <Link
+                    to="/register"
+                    className="btn bg-sky-400 hover:bg-sky-500 py-1 px-4 mr-4  "
+                  >
                     Daftar
-                  </button>
-                  <button
+                  </Link>
+                  <Link
+                    to="/login"
                     onClick={() => setLogin(true)}
                     className="btn bg-yellow-400 hover:bg-yellow-500 py-1 px-4 mr-4 lg:mr-0"
                   >
                     Masuk
-                  </button>
+                  </Link>
                 </>
               )}
             </div>

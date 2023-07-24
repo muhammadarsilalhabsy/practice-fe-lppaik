@@ -1,0 +1,61 @@
+{table == "BTQ" ? (
+                <table className="w-full lg:w-10/12 border-2 border-black text-center text-sm md:text-base rounded-lg ">
+                  <tr className="  bg-[#55828b] ">
+                    <th className="font-semibold  border border-black px-1">
+                      No
+                    </th>
+                    <th className="font-semibold border border-black px-1">
+                      Kegiatan
+                    </th>
+                    <th className="font-semibold border border-black px-1">
+                      Hari
+                    </th>
+                    <th className="font-semibold border border-black px-1">
+                      Tutor
+                    </th>
+                  </tr>
+                  {btq.map(({ id, hari, kegiatan, tutor }) => (
+                    <tr
+                      className={`${
+                        id % 2 == 0 ? "bg-[#87bba2]" : "bg-[#c9e4ca]"
+                      }`}
+                    >
+                      <td className="border border-black px-1">{id}</td>
+                      <td className="border border-black px-1">{kegiatan}</td>
+                      <td className="border border-black px-1">{hari}</td>
+                      <td className="border border-black px-1">{tutor}</td>
+                    </tr>
+                  ))}
+                </table>
+              ) : (
+                <table className="table-fixed w-full lg:w-10/12 border-2 border-black text-center text-sm md:text-base rounded-lg ">
+                  <tr className="  bg-[#55828b] ">
+                    <th className="font-semibold  border border-black px-1 w-10">
+                      No
+                    </th>
+                    <th className="font-semibold border border-black lg:w-[550px] md:w-40 w-36 px-1">
+                      Kegiatan
+                    </th>
+                    <th className="font-semibold border border-black px-1">
+                      Hari
+                    </th>
+                    <th className="font-semibold border border-black px-1">
+                      By
+                    </th>
+                  </tr>
+                  {activity.map(({ id, hari, kegiatan, absentBy }) => (
+                    <tr
+                      className={`${
+                        id % 2 == 0 ? "bg-[#87bba2]" : "bg-[#c9e4ca]"
+                      }`}
+                    >
+                      <td className="border border-black px-1 w-10">{id}</td>
+                      <td className="border border-black px-1 lg:w-[550px] md:w-40 w-36 truncate">
+                        {kegiatan}
+                      </td>
+                      <td className="border border-black px-1">{hari}</td>
+                      <td className="border border-black px-1">{absentBy}</td>
+                    </tr>
+                  ))}
+                </table>
+              )}
